@@ -8,7 +8,7 @@ import useStyles from "./styles";
 
 export const Inventory = () => {
   const styles = useStyles();
-  const [cars, setCars] = useState(data);
+  const [cars] = useState(data);
   const [page, setPage] = useState(1);
   const itemsPerPage = 6;
 
