@@ -42,6 +42,10 @@ const useStyles = makeStyles<Theme>((theme) => ({
   },
   btn: {
     borderColor: `${theme.palette.secondary.main}!important`,
+    "&:hover": {
+      backgroundColor: "#512d6a",
+      color: "#fff",
+    },
   },
 }));
 export default useStyles;

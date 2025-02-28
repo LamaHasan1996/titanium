@@ -24,7 +24,12 @@ export const CarCard = ({
 
   return (
     <Card
-      sx={{ maxWidth: maxWidth, direction: lang === "ar" ? "rtl" : "ltr" }}
+      sx={{
+        maxWidth: maxWidth,
+        direction: lang === "ar" ? "rtl" : "ltr",
+        borderRadius: "8px",
+        border: "2px solid #34495e",
+      }}
       onClick={() => navigate(`/car/${data.alias}`)}
     >
       <CardActionArea>
@@ -90,8 +95,13 @@ export const CarCard = ({
           </Box>
         </CardContent>
       </CardActionArea>
-      <CardActions sx={{ display: "flex", justifyContent: "flex-end" }}>
-        <Button size="small" color="secondary">
+      <CardActions className={styles.btnBox}>
+        <Button
+          size="small"
+          variant="outlined"
+          color="secondary"
+          className={styles.btn}
+        >
           {t("See More")}
         </Button>
       </CardActions>

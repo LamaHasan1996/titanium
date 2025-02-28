@@ -7,16 +7,19 @@ const useStyles = makeStyles<Theme>((theme) => ({
     display: "flex",
     justifyContent: "space-between",
     borderBottom: "1px solid #cddcee",
+    backgroundColor: "#34495e",
+    paddingTop: "16px",
+    paddingBottom: "8px",
   },
   imgBox: {
-    height: "114px",
-    width: "114px",
+    height: "50px",
+    width: "70px",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     "& img": {
       maxWidth: "100%",
-      height: "90px",
+      height: "65px",
     },
   },
   icon: {
@@ -40,7 +43,7 @@ const useStyles = makeStyles<Theme>((theme) => ({
     alignItems: "center",
   },
   link: {
-    color: `${theme.palette.text.primary}!important`,
+    color: `#fff !important`,
     fontSize: "16px!important",
     fontWeight: "600!important",
     fontFamily:

@@ -11,7 +11,7 @@ button {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #94b9e3;
+  background-color: #34495e;
   border-radius: 6px;
   border: 2px solid #f9f9ff;
 }
@@ -44,4 +44,14 @@ button {
   src: url("/fonts/Poppins/Poppins-Regular.woff");
   src: local("Poppins"),
     url("/fonts/Poppins/Poppins-Regular.woff") format("truetype");
+}
+
+@keyframes drawLine {
+  0%,
+  100% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0%);
+  }
 }

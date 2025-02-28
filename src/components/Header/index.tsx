@@ -9,7 +9,7 @@ export const Header = () => {
 
   return (
     <Container
-      maxWidth="lg"
+      maxWidth="xl"
       dir={lang === "en" ? "ltr" : "rtl"}
       className={styles.container}
     >

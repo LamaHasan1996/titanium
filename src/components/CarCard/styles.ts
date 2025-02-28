@@ -64,5 +64,15 @@ const useStyles = makeStyles<Theme>((theme) => ({
         ? "Montserrat-Bold!important"
         : "Poppins-Bold!important",
   },
+  btnBox: {
+    display: "flex",
+    justifyContent: "center",
+  },
+  btn: {
+    "&:hover": {
+      backgroundColor: "#512d6a",
+      color: "#fff",
+    },
+  },
 }));
 export default useStyles;

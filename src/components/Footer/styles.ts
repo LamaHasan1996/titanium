@@ -21,13 +21,14 @@ const useStyles = makeStyles<Theme>((theme) => ({
     },
   },
   root: {
-    backgroundColor: "#94b9e345",
+    backgroundColor: "#34495e",
   },
   title: {
     fontSize: "24px!important",
     fontWeight: "600!important",
     display: "flex",
     paddingTop: "20px",
+    color: "#fff !important",
     fontFamily:
       theme.direction === "rtl"
         ? "Montserrat-Bold!important"
@@ -43,15 +44,17 @@ const useStyles = makeStyles<Theme>((theme) => ({
     display: "flex",
     alignItems: "center",
     gap: "4px",
+    color: "#fff !important",
+
     "& svg": {
-      color: theme.palette.secondary.main,
+      color: theme.palette.primary.main,
     },
   },
   pointer: {
     cursor: "pointer",
   },
   link: {
-    color: "inherit!important",
+    color: "#fff !important",
     display: "flex",
     gap: "4px",
   },

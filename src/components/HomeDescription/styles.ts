@@ -11,7 +11,8 @@ const useStyles = makeStyles<Theme>((theme) => ({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#94b9e31f",
+    backgroundColor: "#34495e",
+    color: "#fff",
   },
   title: {
     fontSize: "20px!important",
