@@ -1,35 +1,57 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { CssBaseline, Paper } from "@mui/material";
+import { ThemeProvider } from "@mui/material/styles";
+import { jssPreset, StylesProvider } from "@mui/styles";
+import { create } from "jss";
+import rtl from "jss-rtl";
+import { Suspense, useEffect, useMemo, useRef } from "react";
+import { RouterProvider } from "react-router-dom";
+import "./App.css";
+import { Footer, Header } from "./components";
+import router from "./router/router";
+import { getTheme } from "./styles/theme";
+import { useTranslation } from "./translation/context";
+// import { theme } from "./styles/theme";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
+  const componentRef = useRef<HTMLDivElement>(null);
+  const { lang } = useTranslation();
+  console.log(lang, "lang");
+  const theme = useMemo(() => getTheme({ lang: lang ?? "en" }), [lang]);
+  console.log(theme, "theme");
+  useEffect(() => {
+    console.log("Language Changed:", lang);
+  }, [lang]);
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <ThemeProvider theme={theme}>
+      <Header />
+      <StylesProvider jss={jss}>
+        <CssBaseline />
+        <Paper
+          component="div"
+          ref={componentRef}
+          dir={lang === "en" ? "ltr" : "rtl"}
+          id="full-page"
+          style={{
+            background: theme.palette.background.default,
+            position: "relative",
+            minHeight: "100vh",
+            height: "100%",
+            boxShadow: "none",
+            display: "flex",
+            flexDirection: "column",
+            width: "100%",
+            fontFamily: theme.typography.fontFamily,
+          }}
+        >
+          <Suspense fallback={<h1></h1>}>
+            <RouterProvider router={router} />
+          </Suspense>
+        </Paper>
+      </StylesProvider>
+      <Footer />
+    </ThemeProvider>
+  );
 }
 
-export default App
+export default App;
