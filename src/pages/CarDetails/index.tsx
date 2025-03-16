@@ -355,12 +355,7 @@ export const CarDetails = () => {
               )}
             </Grid>
             <Grid size={{ xs: 3 }}>
-              <Button
-                type="submit"
-                variant="contained"
-                color="primary"
-                className={styles.btn}
-              >
+              <Button type="submit" variant="contained" className={styles.btn}>
                 {t("Request Information")}
               </Button>
             </Grid>

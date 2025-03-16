@@ -3,7 +3,7 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles<Theme>((theme) => ({
   card: {
-    border: "1px solid #512d6a",
+    border: `1px solid ${theme.palette.secondary.main}`,
   },
   title: {
     fontSize: "16px!important",
@@ -70,8 +70,9 @@ const useStyles = makeStyles<Theme>((theme) => ({
   },
   btn: {
     "&:hover": {
-      backgroundColor: "#512d6a",
+      backgroundColor: theme.palette.secondary.main,
       color: "#fff",
+      boxShadow: "-6px 4px 4px -1px rgba(0, 0, 0, 0.2)",
     },
   },
 }));

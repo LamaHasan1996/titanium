@@ -18,7 +18,7 @@ const useStyles = makeStyles<Theme>((theme) => ({
       bottom: "0px",
       "& li button:before": {
         fontSize: "11px",
-        color: "#512d6a",
+        color: theme.palette.secondary.main,
       },
     },
   },
@@ -42,9 +42,11 @@ const useStyles = makeStyles<Theme>((theme) => ({
   },
   btn: {
     borderColor: `${theme.palette.secondary.main}!important`,
+    transition: "box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out",
     "&:hover": {
-      backgroundColor: "#512d6a",
+      backgroundColor: theme.palette.secondary.main,
       color: "#fff",
+      boxShadow: "-6px 4px 4px -1px rgba(0, 0, 0, 0.2)",
     },
   },
 }));

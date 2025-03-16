@@ -14,7 +14,7 @@ const useStyles = makeStyles<Theme>((theme) => ({
       bottom: "0px",
       "& li button:before": {
         fontSize: "11px",
-        color: "#512d6a",
+        color: theme.palette.secondary.main,
       },
     },
   },
@@ -77,7 +77,15 @@ const useStyles = makeStyles<Theme>((theme) => ({
     justifyContent: "flex-end",
     marginTop: "8px",
     "& a": {
-      color: "#512d6a",
+      color: "#fff",
+      backgroundColor: theme.palette.secondary.main,
+      padding: "4px 10px",
+      borderRadius: "4px",
+      boxShadow: "0px 3px 1px -2px rgba(0,0,0,0.2)",
+      transition: "box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out",
+      "&:hover": {
+        boxShadow: "-6px 4px 4px -1px rgba(0, 0, 0, 0.2)",
+      },
     },
   },
 }));

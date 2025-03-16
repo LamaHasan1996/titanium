@@ -62,10 +62,10 @@ export const HomeCars = () => {
           <CarCard data={item} maxWidth={"324px"} />
         ))}
       </Slider>
-      <Box display={"flex"} justifyContent={"flex-end"}>
+      <Box display={"flex"} justifyContent={"flex-end"} mb={"8px"}>
         <Button
-          variant="outlined"
-          size="small"
+          variant="contained"
+          size="medium"
           color="secondary"
           className={styles.btn}
           onClick={() => navigate("/inventory")}

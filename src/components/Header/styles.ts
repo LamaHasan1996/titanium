@@ -6,10 +6,12 @@ const useStyles = makeStyles<Theme>((theme) => ({
     width: "100%",
     display: "flex",
     justifyContent: "space-between",
-    borderBottom: "1px solid #cddcee",
     backgroundColor: "#34495e",
     paddingTop: "16px",
     paddingBottom: "8px",
+    position: "sticky",
+    top: 0,
+    zIndex: 5,
   },
   imgBox: {
     height: "50px",

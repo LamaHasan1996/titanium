@@ -3,7 +3,7 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles<Theme>((theme) => ({
   container: {
-    border: "1px solid #512d6a",
+    border: `1px solid ${theme.palette.secondary.main}`,
     borderRadius: "8px",
     maxWidth: "50rem",
     padding: "16px",

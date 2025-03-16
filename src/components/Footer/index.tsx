@@ -19,7 +19,9 @@ export const Footer = () => {
         className={styles.container}
       >
         <Box className={styles.imgBox}>
-          <img src={"/images/logo.png"} alt="logo" />
+          <a href="/home">
+            <img src={"/images/logo.png"} alt="logo" />
+          </a>
         </Box>
         <Typography className={styles.title}>{t("Contact US")}</Typography>
         <Box className={styles.contentContainer}>

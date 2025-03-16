@@ -1,16 +1,33 @@
-import { Box, Container, Pagination } from "@mui/material";
+import {
+  Box,
+  Button,
+  ButtonGroup,
+  Container,
+  FormControl,
+  MenuItem,
+  Pagination,
+  Select,
+  useTheme,
+} from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import { motion } from "framer-motion";
 import { useMemo, useState } from "react";
-import { CarCard } from "../../components";
+import { CarCard, ShareButton } from "../../components";
 import { data } from "./data";
 import useStyles from "./styles";
+import { useTranslation } from "../../translation";
 
 export const OnDemand = () => {
   const styles = useStyles();
   const [cars] = useState(data);
   const [page, setPage] = useState(1);
+  const [selectedStatus, setSelectedStatus] = useState<"New" | "Used" | "All">(
+    "All"
+  );
+  const [selectedType, setSelectedType] = useState<string>("All");
   const itemsPerPage = 6;
+  const { t } = useTranslation();
+  const theme = useTheme();
 
   const currentItems = useMemo(() => {
     const start = (page - 1) * itemsPerPage;
@@ -32,7 +49,91 @@ export const OnDemand = () => {
       <Box className={styles.imgBox}>
         <img src="/images/cars.png" alt="Car image" />
       </Box>
-
+      <Container maxWidth="lg" className={styles.filterscontainer}>
+        <Box className={styles.filtersBox}>
+          <ButtonGroup
+            variant="contained"
+            aria-label="status selection"
+            className={styles.btnGroup}
+          >
+            <Button
+              key={"All"}
+              onClick={() => setSelectedStatus("All")}
+              sx={{
+                backgroundColor:
+                  selectedStatus === "All"
+                    ? theme.palette.secondary.main
+                    : "#512d6a78",
+                color: "#fff",
+                borderColor: `${theme.palette.secondary.main}!important`,
+              }}
+            >
+              {t("All")}
+            </Button>
+            <Button
+              key={"New"}
+              onClick={() => setSelectedStatus("New")}
+              sx={{
+                backgroundColor:
+                  selectedStatus === "New"
+                    ? theme.palette.secondary.main
+                    : "#512d6a78",
+                color: "#fff",
+                borderColor: `${theme.palette.secondary.main}!important`,
+              }}
+            >
+              {t("New")}
+            </Button>
+            <Button
+              key={"Used"}
+              onClick={() => setSelectedStatus("Used")}
+              sx={{
+                backgroundColor:
+                  selectedStatus === "Used"
+                    ? theme.palette.secondary.main
+                    : "#512d6a78",
+                color: "#fff",
+                borderColor: `${theme.palette.secondary.main}!important`,
+              }}
+            >
+              {t("Used")}
+            </Button>
+          </ButtonGroup>
+          <FormControl className={styles.select}>
+            <Select
+              label={t("Car Category")}
+              value={selectedType}
+              className={styles.category}
+              onChange={(e) => setSelectedType(e.target.value)}
+              MenuProps={{
+                disablePortal: true,
+                disableScrollLock: true,
+                PaperProps: {
+                  sx: {
+                    position: "absolute",
+                    zIndex: 0,
+                  },
+                },
+                anchorOrigin: {
+                  vertical: "bottom",
+                  horizontal: "left",
+                },
+                transformOrigin: {
+                  vertical: "top",
+                  horizontal: "left",
+                },
+              }}
+            >
+              <MenuItem value="All">{t("All")}</MenuItem>
+              <MenuItem value="SUV">{t("SUV")}</MenuItem>
+              <MenuItem value="Sedan">{t("Sedan")}</MenuItem>
+              <MenuItem value="Truck">{t("Truck")}</MenuItem>
+              <MenuItem value="Coupe">{t("Coupe")}</MenuItem>
+            </Select>
+          </FormControl>
+          <ShareButton />
+        </Box>
+      </Container>
       <Container maxWidth={"lg"} className={styles.container}>
         <motion.div
           key={page}

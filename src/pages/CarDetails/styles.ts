@@ -23,7 +23,7 @@ const useStyles = makeStyles<Theme>((theme) => ({
       bottom: "0px",
       "& li button:before": {
         fontSize: "11px",
-        color: "#512d6a",
+        color: theme.palette.secondary.main,
       },
     },
     "& .lg-react-element": {
@@ -102,6 +102,7 @@ const useStyles = makeStyles<Theme>((theme) => ({
   },
   btn: {
     color: "#fff!important",
+    backgroundColor: `${theme.palette.secondary.main}!important`,
   },
   link: {
     "& a": {

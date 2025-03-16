@@ -28,7 +28,7 @@ export const CarCard = ({
         maxWidth: maxWidth,
         direction: lang === "ar" ? "rtl" : "ltr",
         borderRadius: "8px",
-        border: "2px solid #34495e",
+        border: "1px solid #34495e",
       }}
       onClick={() => navigate(`/car/${data.alias}`)}
     >
@@ -97,8 +97,8 @@ export const CarCard = ({
       </CardActionArea>
       <CardActions className={styles.btnBox}>
         <Button
-          size="small"
-          variant="outlined"
+          size="medium"
+          variant="contained"
           color="secondary"
           className={styles.btn}
         >
