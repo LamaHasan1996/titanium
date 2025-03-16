@@ -42,6 +42,7 @@ function App() {
             flexDirection: "column",
             width: "100%",
             fontFamily: theme.typography.fontFamily,
+            overflowX: "hidden",
           }}
         >
           <Suspense fallback={<h1></h1>}>
