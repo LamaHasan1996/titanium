@@ -1,5 +1,5 @@
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
-import { Box, Button, IconButton, Typography } from "@mui/material";
+import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
@@ -14,6 +14,7 @@ export const HomeCars = () => {
   const styles = useStyles();
   const { t, lang } = useTranslation();
   const navigate = useNavigate();
+  const theme = useTheme();
 
   const CustomPrevArrow: React.FC<IArrowProps> = ({ onClick }) => (
     <IconButton
@@ -34,6 +35,9 @@ export const HomeCars = () => {
       sx={{
         position: "absolute",
         right: "-22px",
+        [theme.breakpoints.down(1025)]: {
+          right: "-3rem",
+        },
       }}
       className={styles.arrow}
     >
@@ -52,6 +56,20 @@ export const HomeCars = () => {
     slidesToScroll: 1,
     nextArrow: <CustomNextArrow />,
     prevArrow: <CustomPrevArrow />,
+    responsive: [
+      {
+        breakpoint: 769,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 426,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
 
   return (
@@ -59,7 +77,7 @@ export const HomeCars = () => {
       <Typography className={styles.title}>{t("Latest Cars")}</Typography>
       <Slider {...settings}>
         {data?.map((item) => (
-          <CarCard data={item} maxWidth={"324px"} />
+          <CarCard data={item} maxWidth={"18rem"} />
         ))}
       </Slider>
       <Box display={"flex"} justifyContent={"flex-end"} mb={"8px"}>

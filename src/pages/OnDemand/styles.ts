@@ -17,6 +17,9 @@ const useStyles = makeStyles<Theme>((theme) => ({
     justifyContent: "center",
     gap: "6rem",
     marginTop: "40px",
+    [theme.breakpoints.down(1025)]: {
+      marginTop: "24px",
+    },
   },
   filtersBox: {
     borderRadius: "8px",
@@ -28,12 +31,17 @@ const useStyles = makeStyles<Theme>((theme) => ({
     "& .MuiButtonGroup-root": {
       boxShadow: "none",
     },
+    [theme.breakpoints.down(426)]: {
+      flexDirection: "column",
+      alignItems: "flex-end",
+      gap: "16px",
+    },
   },
   imgBox: {
     height: "348px",
     width: "100%",
     "& img": {
-      maxHeight: "100%",
+      height: "100%",
       width: "100%",
     },
   },
@@ -55,9 +63,24 @@ const useStyles = makeStyles<Theme>((theme) => ({
       },
     },
   },
-  select: { minWidth: 150, height: "50px", position: "relative" },
+  select: {
+    minWidth: 150,
+    height: "50px",
+    position: "relative",
+    [theme.breakpoints.down(426)]: {
+      width: "100%",
+    },
+  },
   btnGroup: {
     direction: "initial",
+    [theme.breakpoints.down(426)]: {
+      width: "100%",
+    },
+    "& .MuiButtonBase-root": {
+      [theme.breakpoints.down(426)]: {
+        width: "33.3%",
+      },
+    },
   },
 }));
 export default useStyles;

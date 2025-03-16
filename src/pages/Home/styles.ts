@@ -1,6 +1,7 @@
+import { Theme } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles<Theme>((theme) => ({
   container: {
     display: "flex",
     flexDirection: "column",
@@ -22,6 +23,9 @@ const useStyles = makeStyles(() => ({
     backgroundRepeat: "no-repeat",
     backgroundSize: "100% 100%",
     transform: "scaleX(1.3)",
+    [theme.breakpoints.down(769)]: {
+      display: "none",
+    },
     "&::before": {
       content: '""',
       zIndex: -1,

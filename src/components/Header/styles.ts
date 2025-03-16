@@ -2,16 +2,19 @@ import { makeStyles } from "@mui/styles";
 import { Theme } from "@mui/material/styles";
 
 const useStyles = makeStyles<Theme>((theme) => ({
+  header: {
+    position: "sticky",
+    top: 0,
+    zIndex: 5,
+    width: "100%",
+    backgroundColor: "#34495e",
+  },
   container: {
     width: "100%",
     display: "flex",
     justifyContent: "space-between",
-    backgroundColor: "#34495e",
     paddingTop: "16px",
     paddingBottom: "8px",
-    position: "sticky",
-    top: 0,
-    zIndex: 5,
   },
   imgBox: {
     height: "50px",
@@ -52,6 +55,14 @@ const useStyles = makeStyles<Theme>((theme) => ({
       theme.direction === "rtl"
         ? "Montserrat-Bold!important"
         : "Poppins-Bold!important",
+    [theme.breakpoints.down(425)]: {
+      fontSize: "14px !important",
+      fontWeight: "500 !important",
+      fontFamily:
+        theme.direction === "rtl"
+          ? "Montserrat!important"
+          : "Poppins!important",
+    },
   },
 }));
 export default useStyles;

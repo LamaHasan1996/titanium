@@ -44,6 +44,9 @@ const useStyles = makeStyles<Theme>((theme) => ({
     borderRadius: "8px",
     width: "40rem",
     backdropFilter: "blur(3px)",
+    [theme.breakpoints.down(768)]: {
+      width: "20rem",
+    },
   },
   title: {
     fontSize: "16px!important",

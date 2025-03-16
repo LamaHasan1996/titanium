@@ -39,6 +39,7 @@ import { useTranslation } from "../../translation";
 import { data } from "./data";
 import useStyles from "./styles";
 import { IArrowProps } from "./types";
+import { ShareButton } from "../../components";
 export const CarDetails = () => {
   const styles = useStyles();
   const { lang, t } = useTranslation();
@@ -104,14 +105,12 @@ export const CarDetails = () => {
 
   return (
     <Container maxWidth={"lg"} className={styles.container}>
-      <Box
-        display={"flex"}
-        justifyContent={"space-between"}
-        width={"100%"}
-        alignItems={"baseline"}
-      >
+      <Box className={styles.titleBox}>
         <Typography className={styles.title}>{data?.title[lang]}</Typography>
+      </Box>
+      <Box className={styles.statusBox}>
         <Typography>{data?.price[lang]}</Typography>
+        <ShareButton />
       </Box>
       <Box className={styles.sliderBox}>
         <Slider {...settings}>
@@ -130,6 +129,7 @@ export const CarDetails = () => {
                     width: "100%",
                     height: "345px",
                     cursor: "pointer",
+                    borderRadius: "8px",
                   }}
                 />
               </a>
@@ -227,11 +227,7 @@ export const CarDetails = () => {
                   <Typography className={styles.subTitle}>
                     {data.features[featureKey][lang]}
                   </Typography>
-                  <Box
-                    display="grid"
-                    gridTemplateColumns="repeat(3, 1fr)"
-                    gap="16px"
-                  >
+                  <Box className={styles.gridBox}>
                     {data.features[featureKey].items.map((item, index) => (
                       <Box
                         key={index}
@@ -354,7 +350,7 @@ export const CarDetails = () => {
                 </Typography>
               )}
             </Grid>
-            <Grid size={{ xs: 3 }}>
+            <Grid>
               <Button type="submit" variant="contained" className={styles.btn}>
                 {t("Request Information")}
               </Button>

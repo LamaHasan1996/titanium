@@ -11,6 +11,15 @@ const useStyles = makeStyles<Theme>((theme) => ({
     marginTop: "40px",
     marginBottom: "40px",
   },
+  titleBox: {
+    display: "flex",
+    justifyContent: "space-between",
+    width: "100%",
+    alignItems: "baseline",
+    [theme.breakpoints.down(426)]: {
+      flexDirection: "column",
+    },
+  },
   sliderBox: {
     width: "100%",
     overflowX: "hidden",
@@ -41,6 +50,9 @@ const useStyles = makeStyles<Theme>((theme) => ({
         ? "Montserrat-Bold!important"
         : "Poppins-Bold!important",
     maxWidth: "70%",
+    [theme.breakpoints.down(426)]: {
+      maxWidth: "100%",
+    },
   },
   label: {
     fontWeight: "600!important",
@@ -48,6 +60,20 @@ const useStyles = makeStyles<Theme>((theme) => ({
       theme.direction === "rtl"
         ? "Montserrat-Bold!important"
         : "Poppins-Bold!important",
+  },
+  gridBox: {
+    display: "grid",
+    gridTemplateColumns: "repeat(3, 1fr)",
+    gap: "16px",
+    [theme.breakpoints.down(426)]: {
+      gridTemplateColumns: "repeat(1, 1fr)",
+    },
+  },
+  statusBox: {
+    width: "100%",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   sliderImg: {
     height: "385px",

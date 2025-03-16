@@ -21,10 +21,16 @@ const useStyles = makeStyles<Theme>((theme) => ({
       theme.direction === "rtl"
         ? "Montserrat-Bold!important"
         : "Poppins-Bold!important",
+    [theme.breakpoints.down(425)]: {
+      fontSize: "16px!important",
+    },
   },
   description: {
     fontSize: "16px!important",
     textAlign: "center",
+    [theme.breakpoints.down(425)]: {
+      fontSize: "14px!important",
+    },
   },
 }));
 export default useStyles;

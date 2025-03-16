@@ -8,6 +8,12 @@ const useStyles = makeStyles<Theme>((theme) => ({
     justifyContent: "space-between",
     paddingTop: "2rem",
     paddingBottom: "2rem",
+    [theme.breakpoints.down(768)]: {
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      gap: "8px",
+    },
   },
   imgBox: {
     height: "114px",
@@ -33,12 +39,23 @@ const useStyles = makeStyles<Theme>((theme) => ({
       theme.direction === "rtl"
         ? "Montserrat-Bold!important"
         : "Poppins-Bold!important",
+    [theme.breakpoints.down(768)]: {
+      paddingTop: "0px",
+      fontSize: "20px!important",
+    },
   },
   contentContainer: {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     gap: "20px",
+    [theme.breakpoints.down(768)]: {
+      gap: "8px",
+      width: "100%",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+    },
   },
   contentBox: {
     display: "flex",
